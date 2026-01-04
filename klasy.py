@@ -1,46 +1,68 @@
-#Klasa = szablon, przepis
+# Klasa = Szablon, Przepis
 class Czlowiek:
-    #Istota
-    #atrybuty klasy
-    #(cechy wspolne kazdego czlowieka)
+    # Istota
+    # atrybuty KLASY
+    # (Cechy wspólne KAŻDEGO Czlowieka)
     gatunek = "Homo Sapiens"
-    def __init__(self, imie, plec): #atrybuty obiektu (skladniki potrawy)
-        #(Cechy konkretnej osoby)
-        #Konstruktor
-        #Akt istnienia
+    def __init__(self, imie, plec): # atrybuty OBIEKTU (składniki potrawy)
+        # (Cechy KONKRETNEJ OSOBY)
+        # Konstruktor
+        # Akt Istnienia
+        # Gotowanie
         print(f"Niech powstanie Czlowiek o imieniu {imie}")
         self.imie = imie
         self.plec = plec
+        # adam.imie = "Adam"
+        # ewa.imie = "Ewa"
+    # def __add__(self, other):
+    #     pass
 
-    #Metoda
-    #Moznosc (mozliwosc, zdlonosc, umiejetnosc)
+
+    # Metoda
+    # Możność (możliwość), zdolność, umiejętność
     def przedstaw_sie(self):
-        print(f"Dzien dobry, mam na imie {self.imie} i jestem ", end="")
-        if self.plec == "M":
-            print("mezczyzna")
+        print(f"Dzień dobry, mam na imię {self.imie} i jestem ", end="")
+        if self.plec=="M":
+            print("mężczyzną")
         else:
-            print("kobieta")
+            print("kobietą")
 
     def przedstaw(self, osoba):
         print(f"Oto {osoba.imie}")
 
 class Dziecko(Czlowiek):
-    def baw_sie(self):
-        print("Ale zabawa, juhuu!!!")
-    def przedstaw_sie(self):
-        print(f"Czesc, jestem {self.imie} i jestem ", end="")
-        if self.plec == "M":
-            print("chlopcem")
+    def __str__(self):
+        if self.plec=="M":
+            return f"Chłopiec {self.imie}"
         else:
-            print("dziewczynka")
+            return f"Dziewczynka {self.imie}"
 
+    def baw_sie(self):
+        print("Ale zabawa, juhuu!!!!")
+    def przedstaw_sie(self):
+        print(f"Ceść, jestem {self.imie} i jestem ", end="")
+        if self.plec=="M":
+            print("chłopcem")
+        else:
+            print("dziewczynką")
 
-#Powstanie obiektu
-#Gotowanie z przepisu
+# Powstawanie obiektu (Instancji klasy Czlowiek)
+# (Gotowanie z przepisu)
 adam = Czlowiek("Adam", "M")
+# a = 4 # a = int(4)
 ewa = Czlowiek("Ewa", "K")
 kain = Dziecko("Kain", "M")
-
 ewa.przedstaw_sie()
 kain.baw_sie()
 kain.przedstaw_sie()
+
+print(dir(Czlowiek))
+print(dir(adam))
+print(dir(kain))
+print(Czlowiek)
+print(str(kain))
+print(kain.__str__())
+print(adam)
+print(ewa)
+
+print(dir(int))
